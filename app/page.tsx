@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { ExternalLink, Github, FileText, LayoutGrid, Play, ArrowUpRight, Printer } from "lucide-react";
 
 export default function Home() {
@@ -141,34 +142,48 @@ export default function Home() {
       }`}
     >
       {/* Header */}
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Dev Patel</h1>
-        <p className="text-neutral-400 text-base mb-4">
-          Computer Science Student at University of Georgia • Software Engineer
-        </p>
-        <div className="flex flex-wrap gap-4 text-sm text-neutral-400">
-          <a
-            href="mailto:pateldev1804@gmail.com"
-            className="hover:text-white transition-colors underline underline-offset-4"
-          >
-            Email
-          </a>
-          <a
-            href="https://github.com/pateldev1804"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors underline underline-offset-4"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors underline underline-offset-4"
-          >
-            LinkedIn
-          </a>
+      <header className="mb-14 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-10 md:gap-12">
+        <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-3xl overflow-hidden border border-neutral-800/80 shrink-0 shadow-2xl shadow-black/80 ring-1 ring-white/10 bg-neutral-900 print:hidden">
+          <Image
+            src="/headshot.jpg"
+            alt="Dev Patel"
+            fill
+            sizes="(max-width: 640px) 208px, (max-width: 768px) 256px, 288px"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="flex-1">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
+            Dev Patel
+          </h1>
+          <p className="text-neutral-300 text-base sm:text-lg mb-5 leading-relaxed max-w-xl">
+            Computer Science Student at University of Georgia • Software Engineer
+          </p>
+          <div className="flex flex-wrap gap-4 text-sm text-neutral-400">
+            <a
+              href="mailto:pateldev1804@gmail.com"
+              className="hover:text-white transition-colors underline underline-offset-4"
+            >
+              Email
+            </a>
+            <a
+              href="https://github.com/pateldev1804"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors underline underline-offset-4"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors underline underline-offset-4"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
       </header>
 
