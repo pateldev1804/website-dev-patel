@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 export default function Home() {
   const education = {
     school: "University of Georgia",
@@ -56,6 +58,7 @@ export default function Home() {
     },
     {
       title: "Low-Latency Cross-Exchange Crypto Arbitrage Engine",
+      link: "https://github.com/pateldev1804/crypto-arb",
       tags: ["C++20", "SIMD", "SPSC Ring Buffers", "WebSockets", "Multithreading"],
       bullets: [
         "Engineered a real-time market data ingestion and arbitrage detection engine in C++20, using multithreading to process live Level 2 top-of-book WebSocket feeds from Binance and Coinbase.",
@@ -66,6 +69,7 @@ export default function Home() {
     },
     {
       title: "Online Movie Booking System",
+      link: "https://github.com/pateldev1804/online-ticket-booking-project",
       tags: ["React", "Java Spring Boot", "MongoDB", "RESTful API", "Agile"],
       bullets: [
         "Architected a responsive, full-stack web application leveraging React and Java Spring Boot within an Agile development framework.",
@@ -87,7 +91,7 @@ export default function Home() {
           <a href="mailto:contact@example.com" className="hover:text-white transition-colors underline underline-offset-4">
             Email
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-4">
+          <a href="https://github.com/pateldev1804" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-4">
             GitHub
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-4">
@@ -168,7 +172,21 @@ export default function Home() {
           {projects.map((proj, idx) => (
             <div key={idx} className="space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 className="text-base font-medium text-white">{proj.title}</h3>
+                <h3 className="text-base font-medium text-white">
+                  {proj.link ? (
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 hover:text-white hover:underline underline-offset-4 group transition-colors"
+                    >
+                      <span>{proj.title}</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-colors flex-shrink-0" />
+                    </a>
+                  ) : (
+                    proj.title
+                  )}
+                </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {proj.tags.map((tag, tIdx) => (
                     <span
